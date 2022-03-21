@@ -5,8 +5,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*
 
-@Entity
-data class Coins(
+@Entity(tableName = "Coins")
+data class Coin(
     @PrimaryKey var id: String,
     @ColumnInfo(name = "Name") var name: String,
     @ColumnInfo(name = "Discription") var description: String,
