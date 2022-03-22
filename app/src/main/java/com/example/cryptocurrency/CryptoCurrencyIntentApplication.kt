@@ -1,4 +1,9 @@
 package com.example.cryptocurrency
 
-class CryptoCurrencyIntentApplication {
+import android.app.Application
+
+class CryptoCurrencyIntentApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+    }
 }

@@ -1,21 +1,21 @@
 package com.example.cryptocurrency.Database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.example.cryptocurrency.DataModel.Coin
 
 @Dao
 interface CryptoCurrencyDao {
     /*Get a list of cryptocurrencies*/
     @Query("SELECT * FROM coins")
-    fun gettingCoins(): LiveData<List<Coin>>
+    fun getCoins(): LiveData<List<Coin>>
 
     /*Get a specific coin*/
     @Query("SELECT * FROM coins WHERE id = :id")
-    fun gettingCoins(id: String): LiveData<Coin?>
+    fun getCoins(id: String): LiveData<Coin?>
+
+    @Update
+    fun updateCoin(coin : Coin)
 
     /*Delete a specific coin*/
     @Delete
