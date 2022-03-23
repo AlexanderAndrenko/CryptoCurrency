@@ -18,6 +18,8 @@ class CryptoCurrencyListFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = CryptoCurrencyListFragment()
+        fun newInstance(): CryptoCurrencyListFragment{
+            return CryptoCurrencyListFragment()
+        }
     }
 }
