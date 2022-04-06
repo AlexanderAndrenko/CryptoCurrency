@@ -12,7 +12,11 @@ private const val API_HOST = "api.coingecko.com"
 private const val API_BASE_PATH = "/api/v3"
 
 
-object CoinGeckoClientAPI {
+class CoinGeckoClientAPI {
+
+    init{
+
+    }
 
     private val httpClient = HttpClient(CIO).config {
         defaultRequest {
@@ -21,6 +25,8 @@ object CoinGeckoClientAPI {
             url.encodedPath = API_BASE_PATH + url.encodedPath
         }
     }
+
+
 
     //suspend fun ping() = httpClient.get("ping")
 
