@@ -8,6 +8,17 @@ import java.util.concurrent.Executors
 
 private const val DATABASE_NAME = "cryptoCurrency"
 
+class CryptoCurrencyRepository(private val cryptoCurrencyDao: CryptoCurrencyDao){
+
+    val getCoins: LiveData<List<Coin>> = cryptoCurrencyDao.getCoins()
+
+    suspend fun addCoin(coin: Coin){
+        cryptoCurrencyDao.addCoin(coin)
+    }
+}
+
+//region Old Code
+/*
 class CryptoCurrencyRepository private constructor(context: Context){
 
     //region Properties
@@ -50,6 +61,7 @@ class CryptoCurrencyRepository private constructor(context: Context){
     //region Constructor
 
     companion object{
+        @Volatile
         private var INSTANCE : CryptoCurrencyRepository? = null
 
         fun initialize(context: Context){
@@ -60,8 +72,11 @@ class CryptoCurrencyRepository private constructor(context: Context){
 
         fun get() : CryptoCurrencyRepository{
             return INSTANCE?: throw IllegalStateException("CryptoCurrencyRepository must be initialize")
+            //synchronized()
         }
     }
 
     //endregion
 }
+*/
+//endregion

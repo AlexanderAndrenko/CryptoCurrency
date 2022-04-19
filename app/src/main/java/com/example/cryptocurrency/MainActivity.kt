@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    suspend fun getListcoin() {
-        var listCoins = CoinGeckoClientAPI.getCoinList(false)
-    }
+//    suspend fun getListcoin() {
+//        var listCoins = CoinGeckoClientAPI.getCoinList(false)
+//    }
 
 
 }

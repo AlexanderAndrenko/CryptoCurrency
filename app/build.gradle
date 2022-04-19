@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+   // id 'kotlinx-serialization'
 }
 
 android {
@@ -9,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.cryptocurrency"
-        minSdk 21
+        minSdk 26
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -43,8 +44,14 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+
+
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
     //region Room
     implementation("androidx.room:room-runtime:2.4.2")
@@ -61,7 +68,20 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
     //endregion
 
+    // Kotlin components
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
+
     //region Retrofit 2
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    //endregion
+
+    //region Serialize
+    //implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.0")
+    //implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.2.0")
     //endregion
 }

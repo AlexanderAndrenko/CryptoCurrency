@@ -11,16 +11,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="221dp">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:gravity="center"
-            android:text="CryptoCurrency"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-    </FrameLayout>
+        tools:layout_editor_absoluteY="221dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

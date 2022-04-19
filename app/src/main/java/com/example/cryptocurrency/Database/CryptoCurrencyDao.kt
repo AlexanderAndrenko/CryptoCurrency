@@ -15,13 +15,13 @@ interface CryptoCurrencyDao {
     fun getCoins(id: String): LiveData<Coin?>
 
     @Update
-    fun updateCoin(coin : Coin)
+    suspend fun updateCoin(coin : Coin)
 
     /*Delete a specific coin*/
     @Delete
-    fun deleteCoin(coin: Coin)
+    suspend fun deleteCoin(coin: Coin)
 
     /*Insert a coin*/
     @Insert
-    fun addCoin(coin: Coin)
+    suspend fun addCoin(coin: Coin)
 }

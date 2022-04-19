@@ -1,10 +1,7 @@
-package com.example.cryptocurrency.DataModel
+package com.example.cryptocurrency.APIclient
 
 import androidx.room.Entity
 
-//import kotlinx.serialization.Serializable
-
-//@Serializable
 @Entity
 data class CoinList(
     val id: String,
