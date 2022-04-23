@@ -10,8 +10,8 @@
     <EditText
         android:id="@+id/name_et"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
@@ -28,19 +28,29 @@
         android:ems="10"
         android:hint="Description"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/name_et"
         app:layout_constraintStart_toStartOf="@id/name_et"
         app:layout_constraintTop_toBottomOf="@id/name_et" />
-
-    <EditText
-        android:id="@+id/dateFirst_et"
+    <TextView
+        android:id="@+id/textViewDateFirst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="Date first"
-        android:inputType="date"
+        android:text="Date first"
+        app:layout_constraintEnd_toEndOf="@+id/description_et"
         app:layout_constraintStart_toStartOf="@id/description_et"
         app:layout_constraintTop_toBottomOf="@id/description_et" />
+
+    <DatePicker
+        android:id="@+id/dateFirst_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDateFirst"
+        app:layout_constraintStart_toStartOf="@id/textViewDateFirst"
+        app:layout_constraintTop_toBottomOf="@id/textViewDateFirst" />
 
     <EditText
         android:id="@+id/coinGeckoRank_et"
@@ -50,6 +60,7 @@
         android:ems="10"
         android:hint="CoinGecko Rank"
         android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/dateFirst_et"
         app:layout_constraintStart_toStartOf="@id/dateFirst_et"
         app:layout_constraintTop_toBottomOf="@id/dateFirst_et" />
 
@@ -62,4 +73,6 @@
         app:layout_constraintEnd_toEndOf="@+id/coinGeckoRank_et"
         app:layout_constraintStart_toStartOf="@+id/coinGeckoRank_et"
         app:layout_constraintTop_toBottomOf="@+id/coinGeckoRank_et" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
