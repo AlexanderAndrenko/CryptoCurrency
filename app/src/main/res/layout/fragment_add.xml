@@ -8,7 +8,7 @@
     tools:context=".fragments.AddFragment">
 
     <EditText
-        android:id="@+id/Name"
+        android:id="@+id/name_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -21,37 +21,37 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Description"
+        android:id="@+id/description_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Description"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@id/Name"
-        app:layout_constraintTop_toBottomOf="@id/Name" />
+        app:layout_constraintStart_toStartOf="@id/name_et"
+        app:layout_constraintTop_toBottomOf="@id/name_et" />
 
     <EditText
-        android:id="@+id/DateFirst"
+        android:id="@+id/dateFirst_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Date first"
         android:inputType="date"
-        app:layout_constraintStart_toStartOf="@id/Description"
-        app:layout_constraintTop_toBottomOf="@id/Description" />
+        app:layout_constraintStart_toStartOf="@id/description_et"
+        app:layout_constraintTop_toBottomOf="@id/description_et" />
 
     <EditText
-        android:id="@+id/CoinGeckoRank"
+        android:id="@+id/coinGeckoRank_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="CoinGecko Rank"
         android:inputType="number"
-        app:layout_constraintStart_toStartOf="@id/DateFirst"
-        app:layout_constraintTop_toBottomOf="@id/DateFirst" />
+        app:layout_constraintStart_toStartOf="@id/dateFirst_et"
+        app:layout_constraintTop_toBottomOf="@id/dateFirst_et" />
 
     <Button
         android:id="@+id/add"
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Add"
-        app:layout_constraintEnd_toEndOf="@+id/CoinGeckoRank"
-        app:layout_constraintStart_toStartOf="@+id/CoinGeckoRank"
-        app:layout_constraintTop_toBottomOf="@+id/CoinGeckoRank" />
+        app:layout_constraintEnd_toEndOf="@+id/coinGeckoRank_et"
+        app:layout_constraintStart_toStartOf="@+id/coinGeckoRank_et"
+        app:layout_constraintTop_toBottomOf="@+id/coinGeckoRank_et" />
 </androidx.constraintlayout.widget.ConstraintLayout>

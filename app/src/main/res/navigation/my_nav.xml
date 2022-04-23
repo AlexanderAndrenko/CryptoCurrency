@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.cryptocurrency.ListFragment"
-        android:label="fragment_list"
+        android:name="com.example.cryptocurrency.fragments.ListFragment"
+        android:label="List currency"
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_listFragment_to_addFragment"
@@ -16,8 +16,8 @@
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.cryptocurrency.AddFragment"
-        android:label="fragment_add"
+        android:name="com.example.cryptocurrency.fragments.AddFragment"
+        android:label="Add currency"
         tools:layout="@layout/fragment_add" >
         <action
             android:id="@+id/action_addFragment_to_listFragment"

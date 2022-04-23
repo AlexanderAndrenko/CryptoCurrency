@@ -9,16 +9,6 @@ import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.example.cryptocurrency.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ListFragment : Fragment() {
 
     override fun onCreateView(
@@ -28,7 +18,7 @@ class ListFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_list, container, false)
 
-        val bAdd : Button = view.findViewById(R.id.floatingActionButton)
+        val bAdd : View = view.findViewById(R.id.floatingActionButton)
 
         bAdd.setOnClickListener{
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
