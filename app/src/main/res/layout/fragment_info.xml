@@ -1,14 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InfoFragment">
+    tools:context=".fragments.InfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/nameCurrencyInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NameCurrency"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="40dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="150dp" />
+
+    <TextView
+        android:id="@+id/descriptionInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="A little description about crypto currency"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coinGeckoRankInfotxt" />
+
+    <TextView
+        android:id="@+id/coinGeckoRankInfotxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Coingecko rank"
+        app:layout_constraintStart_toStartOf="@+id/nameCurrencyInfo"
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
+    <TextView
+        android:id="@+id/coinGeckoRankInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="100"
+        app:layout_constraintStart_toEndOf="@+id/coinGeckoRankInfotxt"
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
+    <TextView
+        android:id="@+id/currentPriceinfotxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="Current price"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+    <TextView
+        android:id="@+id/currentPriceinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:text="Current price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+    <TextView
+        android:id="@+id/priceCP1hourtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="% price 1 hour"
+        app:layout_constraintStart_toStartOf="@+id/currentPriceinfotxt"
+        app:layout_constraintTop_toBottomOf="@+id/currentPriceinfotxt" />
+
+    <TextView
+        android:id="@+id/priceCP1hourInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="% price 1 hour"
+        app:layout_constraintStart_toStartOf="@+id/currentPriceinfo"
+        app:layout_constraintTop_toBottomOf="@+id/currentPriceinfo" />
+
+    <TextView
+        android:id="@+id/priceCP24hourtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="% price 24 hour"
+        app:layout_constraintStart_toStartOf="@+id/priceCP1hourtxt"
+        app:layout_constraintTop_toBottomOf="@+id/priceCP1hourtxt" />
+
+    <TextView
+        android:id="@+id/priceCP24hourinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="% price 24 hour"
+        app:layout_constraintStart_toStartOf="@+id/priceCP1hourInfo"
+        app:layout_constraintTop_toBottomOf="@+id/priceCP1hourInfo" />
+
+    <TextView
+        android:id="@+id/priceCP7days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="% price 7 days"
+        app:layout_constraintStart_toStartOf="@+id/priceCP24hourtxt"
+        app:layout_constraintTop_toBottomOf="@+id/priceCP24hourtxt" />
+
+    <TextView
+        android:id="@+id/priceCP7daysInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="% price 7 days"
+        app:layout_constraintStart_toStartOf="@+id/priceCP24hourinfo"
+        app:layout_constraintTop_toBottomOf="@+id/priceCP24hourinfo" />
+
+    <TextView
+        android:id="@+id/priceCP14days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="% price 14 days"
+        app:layout_constraintStart_toStartOf="@+id/priceCP7days"
+        app:layout_constraintTop_toBottomOf="@+id/priceCP7days" />
+
+    <TextView
+        android:id="@+id/priceCP14daysInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="% price 14 days"
+        app:layout_constraintStart_toStartOf="@+id/priceCP7daysInfo"
+        app:layout_constraintTop_toBottomOf="@+id/priceCP7daysInfo" />
+
+    <TextView
+        android:id="@+id/priceCP30days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="% price 30 days"
+        app:layout_constraintStart_toStartOf="@+id/priceCP14days"
+        app:layout_constraintTop_toBottomOf="@+id/priceCP14days" />
+
+    <TextView
+        android:id="@+id/priceCP30daysInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="% price 30 days"
+        app:layout_constraintStart_toStartOf="@+id/priceCP14daysInfo"
+        app:layout_constraintTop_toBottomOf="@+id/priceCP14daysInfo" />
+
+    <TextView
+        android:id="@+id/priceCP60days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="% price 60 days"
+        app:layout_constraintStart_toStartOf="@+id/priceCP30days"
+        app:layout_constraintTop_toBottomOf="@+id/priceCP30days" />
+
+    <TextView
+        android:id="@+id/priceCP60daysInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="% price 60 days"
+        app:layout_constraintStart_toStartOf="@+id/priceCP30daysInfo"
+        app:layout_constraintTop_toBottomOf="@+id/priceCP30daysInfo" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
