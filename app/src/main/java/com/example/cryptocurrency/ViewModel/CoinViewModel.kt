@@ -1,10 +1,12 @@
-package com.example.cryptocurrency.Database
+package com.example.cryptocurrency.ViewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.cryptocurrency.DataModel.Coin
+import com.example.cryptocurrency.Database.CryptoCurrencyDatabase
+import com.example.cryptocurrency.Database.CryptoCurrencyRepository
+import com.example.cryptocurrency.Model.Coin
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

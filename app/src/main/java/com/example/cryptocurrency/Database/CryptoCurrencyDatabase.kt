@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.cryptocurrency.DataModel.Coin
+import com.example.cryptocurrency.Model.Coin
 
 @Database(entities = [Coin::class], version = 1)
 @TypeConverters(CryptoCurrencyTypeConverter::class)

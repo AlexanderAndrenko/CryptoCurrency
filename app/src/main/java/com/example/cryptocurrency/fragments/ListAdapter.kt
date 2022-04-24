@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cryptocurrency.DataModel.Coin
+import com.example.cryptocurrency.Model.Coin
 import com.example.cryptocurrency.R
-import com.example.cryptocurrency.databinding.FragmentAddBinding
-import com.example.cryptocurrency.databinding.FragmentListCustomRowBinding
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
 
@@ -20,6 +21,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
         val currentPrice : TextView = itemView.findViewById(R.id.currentPrice)
         val oneHour : TextView = itemView.findViewById(R.id.priceCP1hour)
         val oneDay : TextView = itemView.findViewById(R.id.priceCP24hour)
+        val rowLayout : ConstraintLayout = itemView.findViewById(R.id.rowLayout)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -34,6 +36,11 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
         holder.currentPrice.text = currentItem.currentPrice.toString()
         holder.oneHour.text = currentItem.priceCP1H.toString()
         holder.oneDay.text = currentItem.priceCP24H.toString()
+
+        holder.rowLayout.setOnClickListener{
+            val action = ListFragmentDirections.actionListFragmentToInfoFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {

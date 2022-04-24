@@ -2,7 +2,7 @@ package com.example.cryptocurrency.Database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.cryptocurrency.DataModel.Coin
+import com.example.cryptocurrency.Model.Coin
 
 @Dao
 interface CryptoCurrencyDao {

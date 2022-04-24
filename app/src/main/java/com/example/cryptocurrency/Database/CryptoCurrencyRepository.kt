@@ -1,10 +1,6 @@
 package com.example.cryptocurrency.Database
-import android.content.Context
 import androidx.lifecycle.LiveData
-import androidx.room.Room
-import com.example.cryptocurrency.DataModel.Coin
-import java.lang.IllegalStateException
-import java.util.concurrent.Executors
+import com.example.cryptocurrency.Model.Coin
 
 private const val DATABASE_NAME = "cryptoCurrency"
 

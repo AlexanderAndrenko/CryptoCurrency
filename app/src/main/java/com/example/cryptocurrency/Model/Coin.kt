@@ -1,12 +1,14 @@
-package com.example.cryptocurrency.DataModel
+package com.example.cryptocurrency.Model
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "Coins")
-data class Coin(
+data class Coin (
     @PrimaryKey var id: String,
     //@ColumnInfo(name = "Name") var name: String,
     @ColumnInfo(name = "Description") var description: String,
@@ -19,5 +21,4 @@ data class Coin(
     @ColumnInfo(name = "PriceChangePer14Days") var priceCP14D: Double,
     @ColumnInfo(name = "PriceChangePer30Days") var priceCP30D: Double,
     @ColumnInfo(name = "PriceChangePer60Days") var priceCP60D: Double
-){
-}
+): Parcelable

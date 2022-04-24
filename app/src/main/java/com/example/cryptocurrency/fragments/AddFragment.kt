@@ -5,14 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.cryptocurrency.DataModel.Coin
-import com.example.cryptocurrency.Database.CoinViewModel
+import com.example.cryptocurrency.Model.Coin
+import com.example.cryptocurrency.ViewModel.CoinViewModel
 import com.example.cryptocurrency.R
 import com.example.cryptocurrency.databinding.FragmentAddBinding
-import java.util.*
 
 class AddFragment : Fragment() {
 
