@@ -3,6 +3,7 @@ package com.example.cryptocurrency.fragments
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptocurrency.DataModel.Coin
 import com.example.cryptocurrency.R
@@ -14,7 +15,11 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
     private var coinList = emptyList<Coin>()
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-
+        val name : TextView = itemView.findViewById(R.id.nameCurrency)
+        val rank : TextView = itemView.findViewById(R.id.rankCoinGecko)
+        val currentPrice : TextView = itemView.findViewById(R.id.currentPrice)
+        val oneHour : TextView = itemView.findViewById(R.id.priceCP1hour)
+        val oneDay : TextView = itemView.findViewById(R.id.priceCP24hour)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -22,22 +27,21 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-       /* val name = holder.findViewById(R.id.nameCurrency)
-        val rank = holder.findViewById(R.id.rankCoinGecko)
-        val currentPrice = holder.findViewById(R.id.currentPrice)
-        val oneHour = holder.findViewById(R.id.priceCP1hour)
-        val oneDay = holder.findViewById(R.id.priceCP24hour)
-
         val currentItem = coinList[position]
 
-        name.text = currentItem.id.toString()
-        rank.text = currentItem.coingeckoRank
-        currentPrice.text = currentItem.currentPrice
-        oneHour.text = currentItem.priceCP1H
-        oneDay.text = currentItem.priceCP24H*/
+        holder.name.text = currentItem.id.toString()
+        holder.rank.text = currentItem.coingeckoRank.toString()
+        holder.currentPrice.text = currentItem.currentPrice.toString()
+        holder.oneHour.text = currentItem.priceCP1H.toString()
+        holder.oneDay.text = currentItem.priceCP24H.toString()
     }
 
     override fun getItemCount(): Int {
         return coinList.size
+    }
+
+    fun setData(coin : List<Coin>){
+        this.coinList = coin
+        notifyDataSetChanged()
     }
 }

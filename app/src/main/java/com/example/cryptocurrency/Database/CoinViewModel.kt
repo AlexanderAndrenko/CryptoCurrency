@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class CoinViewModel(application: Application): AndroidViewModel(application) {
-    private val getCoins: LiveData<List<Coin>>
+    val getCoins: LiveData<List<Coin>>
     private val repository: CryptoCurrencyRepository
 
     init{
