@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cryptocurrency.APIclient.CoinGeckoClientAPI
 import com.example.cryptocurrency.ViewModel.CoinViewModel
 import com.example.cryptocurrency.R
 import com.example.cryptocurrency.databinding.FragmentListBinding
@@ -25,7 +26,9 @@ class ListFragment : Fragment() {
 
         binding = FragmentListBinding.inflate(layoutInflater)
         binding.floatingActionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_addFragment)
+            /*findNavController().navigate(R.id.action_listFragment_to_addFragment)*/
+            val coinGeckoClientAPI = CoinGeckoClientAPI()
+            coinGeckoClientAPI.getCoinList()
         }
         val adapter = ListAdapter()
         binding.recyclerview.adapter = adapter
