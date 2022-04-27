@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface CoinGeckoAPI {
     @GET("coins/list")
-    suspend fun coingeckoContents(): Call<CoinGeckoResponse>
+    suspend fun coingeckoContents(): List<CoinList>
 }

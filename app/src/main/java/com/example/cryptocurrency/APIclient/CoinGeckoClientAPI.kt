@@ -1,10 +1,18 @@
 package com.example.cryptocurrency.APIclient
 
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
+import com.example.cryptocurrency.Database.CryptoCurrencyDatabase
+import com.example.cryptocurrency.Database.CryptoCurrencyRepository
+import com.example.cryptocurrency.Model.Coin
+import com.example.cryptocurrency.ViewModel.CoinViewModel
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.features.*
 import io.ktor.client.request.*
 import io.ktor.http.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
@@ -21,7 +29,7 @@ private const val API_BASE_PATH = "/api/v3"
 
 class CoinGeckoClientAPI {
 
-    fun getCoinList(){
+    fun getCoinList(coinViewModel: CoinViewModel) {
         runBlocking {
             launch {
                 val httpLoggingInterceptor = HttpLoggingInterceptor()
@@ -38,19 +46,31 @@ class CoinGeckoClientAPI {
                     .build()
 
                 val coinGeckoAPI = retrofit.create(CoinGeckoAPI::class.java)
-                val result : Call<CoinGeckoResponse> = coinGeckoAPI.coingeckoContents()
+                val result : List<CoinList> = coinGeckoAPI.coingeckoContents()
+                var counter : Int = 1
 
-                result.enqueue( object : Callback<CoinGeckoResponse> {
-                    override fun onResponse(call: Call<CoinGeckoResponse>?, response: Response<CoinGeckoResponse>?) {
+                for (item in result){
+                    var coin : Coin = Coin(item.id, item.name, counter, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0)
+                    coinViewModel.addCoin(coin)
+                    counter++
+                }
+
+                /*result.enqueue( object : Callback<List<CoinList>> {
+                    override fun onResponse(call: Call<List<CoinList>>?, response: Response<List<CoinList>>?) {
                         if (response?.body() != null){
 
                         }
                     }
 
-                    override fun onFailure(call: Call<CoinGeckoResponse>?, t: Throwable?) {
+                    override fun onFailure(call: Call<List<CoinList>>?, t: Throwable?) {
 
                     }
-                })
+                })*/
+
+
+
+
+
             }
         }
     }

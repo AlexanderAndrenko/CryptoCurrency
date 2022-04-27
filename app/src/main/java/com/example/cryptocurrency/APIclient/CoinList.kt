@@ -6,6 +6,6 @@ import androidx.room.Entity
 data class CoinList(
     val id: String,
     val symbol: String,
-    val name: String,
-    val platforms: Map<String, String> = emptyMap(),
+    val name: String
+    /*val platforms: Map<String, String> = emptyMap(),*/
 )

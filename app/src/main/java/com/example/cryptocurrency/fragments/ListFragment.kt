@@ -13,6 +13,7 @@ import com.example.cryptocurrency.APIclient.CoinGeckoClientAPI
 import com.example.cryptocurrency.ViewModel.CoinViewModel
 import com.example.cryptocurrency.R
 import com.example.cryptocurrency.databinding.FragmentListBinding
+import kotlinx.coroutines.CoroutineScope
 
 class ListFragment : Fragment() {
 
@@ -23,20 +24,19 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentListBinding.inflate(layoutInflater)
-        binding.floatingActionButton.setOnClickListener {
-            /*findNavController().navigate(R.id.action_listFragment_to_addFragment)*/
-            val coinGeckoClientAPI = CoinGeckoClientAPI()
-            coinGeckoClientAPI.getCoinList()
-        }
         val adapter = ListAdapter()
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(context)
-
         mCoinViewModel = ViewModelProvider(this).get(CoinViewModel::class.java)
         mCoinViewModel.getCoins.observe(viewLifecycleOwner, Observer { coin -> adapter.setData(coin) })
 
+
+        binding.floatingActionButton.setOnClickListener {
+            /*findNavController().navigate(R.id.action_listFragment_to_addFragment)*/
+            val coinGeckoClientAPI = CoinGeckoClientAPI()
+            coinGeckoClientAPI.getCoinList(mCoinViewModel)
+        }
         return binding.root
     }
 }
