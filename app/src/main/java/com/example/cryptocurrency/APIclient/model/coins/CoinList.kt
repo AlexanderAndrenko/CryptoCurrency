@@ -1,4 +1,4 @@
-package com.example.cryptocurrency.APIclient
+package com.example.cryptocurrency.APIclient.model.coins
 
 import androidx.room.Entity
 

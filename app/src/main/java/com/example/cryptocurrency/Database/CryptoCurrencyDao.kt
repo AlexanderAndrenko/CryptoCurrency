@@ -11,7 +11,7 @@ interface CryptoCurrencyDao {
     fun getCoins(): LiveData<List<Coin>>
 
     /*Get a specific coin*/
-    @Query("SELECT * FROM coins WHERE id = :id")
+    @Query("SELECT * FROM coins WHERE id = :id ORDER BY CoingeckoRank")
     fun getCoins(id: String): LiveData<Coin?>
 
     @Update

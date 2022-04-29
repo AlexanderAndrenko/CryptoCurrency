@@ -1,25 +1,12 @@
 package com.example.cryptocurrency.APIclient
 
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
-import com.example.cryptocurrency.Database.CryptoCurrencyDatabase
-import com.example.cryptocurrency.Database.CryptoCurrencyRepository
+import com.example.cryptocurrency.APIclient.model.coins.CoinList
 import com.example.cryptocurrency.Model.Coin
 import com.example.cryptocurrency.ViewModel.CoinViewModel
-import io.ktor.client.*
-import io.ktor.client.engine.cio.*
-import io.ktor.client.features.*
-import io.ktor.client.request.*
-import io.ktor.http.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

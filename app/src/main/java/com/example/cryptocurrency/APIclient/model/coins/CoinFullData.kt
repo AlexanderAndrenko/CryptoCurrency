@@ -1,10 +1,19 @@
-package com.example.cryptocurrency.APIclient.model
+package com.example.cryptocurrency.APIclient.model.coins
 
 import androidx.room.Entity
+import com.example.cryptocurrency.APIclient.internal.NullValueOmittingListSerializer
+import com.example.cryptocurrency.APIclient.model.coins.data.*
+import com.example.cryptocurrency.APIclient.model.shared.Image
+import com.example.cryptocurrency.APIclient.model.shared.Ticker
+import com.example.cryptocurrency.APIclient.model.status.Update
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
 @Entity
-data class CoinFullData (val id : Int)
-   /* val id: String,
+data class CoinFullData(
+    val id: String,
     val symbol: String,
     val name: String,
     @SerialName("hashing_algorithm")
@@ -62,8 +71,5 @@ data class CoinFullData (val id : Int)
     @SerialName("public_notice")
     val publicNotice: String? = null,
     @SerialName("additional_notices")
-    val additionalNotices: List<String> = emptyList(),*/
-
-{
-
-}
+    val additionalNotices: List<String> = emptyList(),
+)

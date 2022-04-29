@@ -18,6 +18,7 @@ class CoinViewModel(application: Application): AndroidViewModel(application) {
         val cryptoCurrencyDao = CryptoCurrencyDatabase.getDatabase(application).cryptoCurrencyDao()
         repository = CryptoCurrencyRepository(cryptoCurrencyDao)
         getCoins = repository.getCoins
+
     }
 
     fun addCoin(coin: Coin){

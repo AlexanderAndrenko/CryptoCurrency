@@ -1,6 +1,6 @@
 package com.example.cryptocurrency.APIclient
 
-import retrofit2.Call
+import com.example.cryptocurrency.APIclient.model.coins.CoinList
 import retrofit2.http.GET
 
 interface CoinGeckoAPI {
