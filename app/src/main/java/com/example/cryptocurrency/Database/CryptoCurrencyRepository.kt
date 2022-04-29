@@ -11,6 +11,10 @@ class CryptoCurrencyRepository(private val cryptoCurrencyDao: CryptoCurrencyDao)
     suspend fun addCoin(coin: Coin){
         cryptoCurrencyDao.addCoin(coin)
     }
+
+    suspend fun deleteCoin(coin: Coin){
+        cryptoCurrencyDao.deleteCoin(coin)
+    }
 }
 
 //region Old Code

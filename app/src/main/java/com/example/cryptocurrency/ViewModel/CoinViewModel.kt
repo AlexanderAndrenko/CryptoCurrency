@@ -26,4 +26,10 @@ class CoinViewModel(application: Application): AndroidViewModel(application) {
             repository.addCoin(coin)
         }
     }
+
+    fun deleteCoin(coin: Coin){
+        viewModelScope.launch (Dispatchers.IO){
+            repository.deleteCoin(coin)
+        }
+    }
 }

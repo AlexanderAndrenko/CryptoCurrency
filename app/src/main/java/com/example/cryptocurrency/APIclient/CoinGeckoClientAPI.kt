@@ -1,8 +1,10 @@
 package com.example.cryptocurrency.APIclient
 
+import com.example.cryptocurrency.APIclient.model.coins.CoinFullData
 import com.example.cryptocurrency.APIclient.model.coins.CoinList
 import com.example.cryptocurrency.Model.Coin
 import com.example.cryptocurrency.ViewModel.CoinViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
@@ -37,10 +39,29 @@ class CoinGeckoClientAPI {
                 var counter : Int = 1
 
                 for (item in result){
-                    var coin : Coin = Coin(item.id, item.name, counter, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0)
-                    coinViewModel.addCoin(coin)
-                    counter++
+                    launch {
+                        delay(1250)
+                        var coinFD : CoinFullData = coinGeckoAPI.coingeckoCoinById(item.id)
+                        var currency : String = "usd"
+                        var coin : Coin =
+                            Coin(
+                                item.id,
+                                item.name,
+                                coinFD.coingeckoRank.toInt(),
+                                coinFD.marketData?.currentPrice?.get(currency),
+                                coinFD.marketData?.priceChangePercentage1hInCurrency?.get(currency),
+                                coinFD.marketData?.priceChangePercentage24hInCurrency?.get(currency),
+                                coinFD.marketData?.priceChangePercentage7dInCurrency?.get(currency),
+                                coinFD.marketData?.priceChangePercentage14dInCurrency?.get(currency),
+                                coinFD.marketData?.priceChangePercentage30dInCurrency?.get(currency),
+                                coinFD.marketData?.priceChangePercentage60dInCurrency?.get(currency)
+                            )
+                        coinViewModel.deleteCoin(coin)
+                        coinViewModel.addCoin(coin)
+                        counter++
+                    }
                 }
+
 
                 /*result.enqueue( object : Callback<List<CoinList>> {
                     override fun onResponse(call: Call<List<CoinList>>?, response: Response<List<CoinList>>?) {
