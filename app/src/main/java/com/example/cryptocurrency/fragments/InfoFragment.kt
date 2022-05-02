@@ -20,8 +20,8 @@ class InfoFragment : Fragment() {
     ): View? {
         binding = FragmentInfoBinding.inflate(layoutInflater)
 
-        binding.nameCurrencyInfo.text = args.currentCoin.id
-        binding.descriptionInfo.text = args.currentCoin.description
+        binding.nameCurrencyInfo.text = args.currentCoin.name
+        binding.descriptionInfo.text = "TEST DESCRIPTION" //args.currentCoin.description
         binding.coinGeckoRankInfo.text = args.currentCoin.coingeckoRank.toString()
         binding.currentPriceinfo.text = args.currentCoin.currentPrice.toString()
         binding.priceCP1hourInfo.text = args.currentCoin.priceCP1H.toString()

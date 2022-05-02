@@ -41,7 +41,7 @@ class AddFragment : Fragment() {
         val description = binding.descriptionEt.text.toString()
         val rankCoinGecko : Int = binding.coinGeckoRankEt.text.toString().toInt()
 
-        val coin = Coin(name, description, rankCoinGecko, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0)
+        val coin = Coin("test" ,name, description, rankCoinGecko, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0)
         mCoinViewModel.addCoin(coin)
         findNavController().navigate(R.id.action_addFragment_to_listFragment)
     }

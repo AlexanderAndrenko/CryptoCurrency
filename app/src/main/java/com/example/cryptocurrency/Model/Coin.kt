@@ -10,7 +10,7 @@ import kotlinx.android.parcel.Parcelize
 @Entity(tableName = "Coins")
 data class Coin (
     @PrimaryKey var id: String,
-    //@ColumnInfo(name = "Name") var name: String,
+    @ColumnInfo(name = "Name") var name: String,
     @ColumnInfo(name = "Description") var description: String,
     //@ColumnInfo(name = "GenesisDate") var genesisDate: Date,
     @ColumnInfo(name = "CoingeckoRank") var coingeckoRank: Int?,

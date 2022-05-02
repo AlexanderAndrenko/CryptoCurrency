@@ -31,7 +31,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = coinList[position]
 
-        holder.name.text = currentItem.id.toString()
+        holder.name.text = currentItem.name
         holder.rank.text = currentItem.coingeckoRank.toString()
         holder.currentPrice.text = currentItem.currentPrice.toString()
         holder.oneHour.text = currentItem.priceCP1H.toString()

@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_listFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_loadFragment"
+            app:destination="@id/loadFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -36,5 +39,14 @@
         <argument
             android:name="currentCoin"
             app:argType="com.example.cryptocurrency.Model.Coin" />
+    </fragment>
+    <fragment
+        android:id="@+id/loadFragment"
+        android:name="com.example.cryptocurrency.fragments.LoadFragment"
+        android:label="Load fragment"
+        tools:layout="@layout/fragment_load" >
+        <action
+            android:id="@+id/action_loadFragment_to_listFragment"
+            app:destination="@id/listFragment" />
     </fragment>
 </navigation>

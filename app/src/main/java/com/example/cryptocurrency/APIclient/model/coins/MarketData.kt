@@ -2,13 +2,34 @@ package com.example.cryptocurrency.APIclient.model.coins
 
 import com.example.cryptocurrency.APIclient.internal.NullValueOmittingMapSerializer
 import com.example.cryptocurrency.APIclient.model.coins.data.Roi
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class MarketData(
-    @SerialName("current_price")
+    @SerializedName("current_price")
     val currentPrice: Map<String, Double>? = null,
+    @SerializedName("price_change_percentage_1h_in_currency")
+    val priceChangePercentage1hInCurrency: Map<String, Double>? = null,
+    @SerializedName("price_change_percentage_24h_in_currency")
+    val priceChangePercentage24hInCurrency: Map<String, Double>? = null,
+    @SerializedName("price_change_percentage_7d_in_currency")
+    val priceChangePercentage7dInCurrency: Map<String, Double>? = null,
+    @SerializedName("price_change_percentage_14d_in_currency")
+    val priceChangePercentage14dInCurrency: Map<String, Double>? = null,
+    @SerializedName("price_change_percentage_30d_in_currency")
+    val priceChangePercentage30dInCurrency: Map<String, Double>? = null,
+    @SerializedName("price_change_percentage_60d_in_currency")
+    val priceChangePercentage60dInCurrency: Map<String, Double>? = null,
+
+/*
+    @SerialName("total_value_locked")
+    val totalValueLocked : String? = null,
+    @SerialName("mcap_to_tvl_ratio")
+    val mcapToTvlRatio : String? = null,
+    @SerialName("fdv_to_tvl_ratio")
+    val fdvToTvlRatio : String? = null,
     val roi: Roi? = null,
     val ath: Map<String, Double>? = null,
     @SerialName("ath_change_percentage")
@@ -19,6 +40,8 @@ data class MarketData(
     val marketCap: Map<String, Double>? = null,
     @SerialName("market_cap_rank")
     val marketCapRank: Long = 0,
+    @SerialName("fully_diluted_valuation")
+    val fullyDilutedValuation : Map<String, Double>? = null,
     @SerialName("total_volume")
     val totalVolume: Map<String, Double>? = null,
     @Serializable(NullValueOmittingMapSerializer::class)
@@ -49,18 +72,6 @@ data class MarketData(
     val marketCapChangePercentage24h: Double = 0.0,
     @SerialName("price_change_24h_in_currency")
     val priceChange24hInCurrency: Map<String, Double>? = null,
-    @SerialName("price_change_percentage_1h_in_currency")
-    val priceChangePercentage1hInCurrency: Map<String, Double>? = null,
-    @SerialName("price_change_percentage_24h_in_currency")
-    val priceChangePercentage24hInCurrency: Map<String, Double>? = null,
-    @SerialName("price_change_percentage_7d_in_currency")
-    val priceChangePercentage7dInCurrency: Map<String, Double>? = null,
-    @SerialName("price_change_percentage_14d_in_currency")
-    val priceChangePercentage14dInCurrency: Map<String, Double>? = null,
-    @SerialName("price_change_percentage_30d_in_currency")
-    val priceChangePercentage30dInCurrency: Map<String, Double>? = null,
-    @SerialName("price_change_percentage_60d_in_currency")
-    val priceChangePercentage60dInCurrency: Map<String, Double>? = null,
     @SerialName("price_change_percentage_200d_in_currency")
     val priceChangePercentage200dInCurrency: Map<String, Double>? = null,
     @SerialName("price_change_percentage_1y_in_currency")
@@ -71,8 +82,10 @@ data class MarketData(
     val marketCapChangePercentage24hInCurrency: Map<String, Double>? = null,
     @SerialName("total_supply")
     val totalSupply: Double? = null,
+    @SerialName("max_supply")
+    val maxSupply : Double? = null,
     @SerialName("circulating_supply")
     val circulatingSupply: Double = 0.0,
     @SerialName("last_updated")
-    val lastUpdated: String? = null
+    val lastUpdated: String? = null*/
 )
