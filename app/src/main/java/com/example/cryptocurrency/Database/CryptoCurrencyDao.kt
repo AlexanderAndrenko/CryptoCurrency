@@ -8,7 +8,7 @@ import retrofit2.http.DELETE
 @Dao
 interface CryptoCurrencyDao {
     /*Get a list of cryptocurrencies*/
-    @Query("SELECT * FROM coins ORDER BY CoingeckoRank")
+    @Query("SELECT * FROM coins ORDER BY CurrentPriceUSD DESC")
     fun getCoins(): LiveData<List<Coin>>
 
     /*Get a specific coin*/
