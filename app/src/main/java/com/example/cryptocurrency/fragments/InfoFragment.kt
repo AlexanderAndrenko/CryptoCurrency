@@ -21,7 +21,8 @@ class InfoFragment : Fragment() {
         binding = FragmentInfoBinding.inflate(layoutInflater)
 
         binding.nameCurrencyInfo.text = args.currentCoin.name
-        binding.descriptionInfo.text = "TEST DESCRIPTION" //args.currentCoin.description
+        binding.maxprice.text = args.currentCoin.maxPrice.toString()
+        binding.maxpricedate.text = args.currentCoin.maxPriceDate
         binding.coinGeckoRankInfo.text = args.currentCoin.coingeckoRank.toString()
         binding.currentPriceinfo.text = args.currentCoin.currentPrice.toString()
         binding.priceCP1hourInfo.text = args.currentCoin.priceCP1H.toString()
@@ -29,7 +30,7 @@ class InfoFragment : Fragment() {
         binding.priceCP7daysInfo.text = args.currentCoin.priceCP7D.toString()
         binding.priceCP14daysInfo.text = args.currentCoin.priceCP14D.toString()
         binding.priceCP30daysInfo.text = args.currentCoin.priceCP30D.toString()
-        binding.priceCP60daysInfo.text = args.currentCoin.priceCP60D.toString()
+        binding.priceCP200daysInfo.text = args.currentCoin.priceCP200D.toString()
 
         return binding.root
     }

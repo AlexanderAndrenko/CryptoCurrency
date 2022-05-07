@@ -10,7 +10,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 
 import androidx.room.migration.Migration
 
-@Database(entities = [Coin::class], version = 3)
+@Database(entities = [Coin::class], version = 4)
 @TypeConverters(CryptoCurrencyTypeConverter::class)
 abstract class CryptoCurrencyDatabase : RoomDatabase() {
 
@@ -31,7 +31,7 @@ abstract class CryptoCurrencyDatabase : RoomDatabase() {
                     CryptoCurrencyDatabase::class.java,
                     "cryptoCurrency"
                     )
-                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
                     .build()
                 INSTANCE = instance
                 return instance
@@ -148,4 +148,56 @@ val MIGRATION_2_3: Migration = object : Migration(2, 3) {
             // Change the table name to the correct one
             database.execSQL("ALTER TABLE [Coins_new] RENAME TO [Coins]")
         }
+}
+
+val MIGRATION_3_4: Migration = object : Migration(3, 4) {
+    override fun migrate(database: SupportSQLiteDatabase) {
+        // Create the new table
+        database.execSQL(
+            "CREATE TABLE [Coins_new] " +
+                    "(" +
+                    "[id] TEXT NOT NULL, " +
+                    "[Name] TEXT NOT NULL," +
+                    "[MaxPrice] REAL NULL, " +
+                    "[MaxPriceData] TEXT NULL," +
+                    "[CoingeckoRank] INTEGER NULL, " +
+                    "[CurrentPriceUSD] REAL NULL, " +
+                    "[PriceChangePer1Hour] REAL NULL, " +
+                    "[PriceChangePer24Hour] REAL NULL, " +
+                    "[PriceChangePer7Days] REAL NULL," +
+                    "[PriceChangePer14Days] REAL NULL, " +
+                    "[PriceChangePer30Days] REAL NULL, " +
+                    "[PriceChangePer200Days] REAL NULL," +
+                    "PRIMARY KEY([id])" +
+                    ")")
+        // Copy the data
+        database.execSQL(
+            "INSERT INTO [Coins_new] " +
+                    "(" +
+                    "[id]," +
+                    "[Name]," +
+                    "[CoingeckoRank]," +
+                    "[CurrentPriceUSD]," +
+                    "[PriceChangePer1Hour]," +
+                    "[PriceChangePer24Hour]," +
+                    "[PriceChangePer7Days]," +
+                    "[PriceChangePer14Days]," +
+                    "[PriceChangePer30Days]" +
+                    ")" +
+                    " SELECT " +
+                    "[id]," +
+                    "[id]," +
+                    "[CoingeckoRank]," +
+                    "[CurrentPriceUSD]," +
+                    "[PriceChangePer1Hour]," +
+                    "[PriceChangePer24Hour]," +
+                    "[PriceChangePer7Days]," +
+                    "[PriceChangePer14Days]," +
+                    "[PriceChangePer30Days]," +
+                    "FROM [Coins]")
+        // Remove the old table
+        database.execSQL("DROP TABLE [Coins]")
+        // Change the table name to the correct one
+        database.execSQL("ALTER TABLE [Coins_new] RENAME TO [Coins]")
+    }
 }

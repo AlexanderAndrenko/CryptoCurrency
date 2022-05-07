@@ -29,4 +29,8 @@ object LoadParameters {
     fun GetStatusExecute() : Boolean{
         return isExecute
     }
+
+    fun LoadIsOver(){
+        isExecute = false
+    }
 }

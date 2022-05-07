@@ -3,7 +3,9 @@ package com.example.cryptocurrency.APIclient
 import android.util.Log
 import com.example.cryptocurrency.APIclient.model.coins.CoinFullData
 import com.example.cryptocurrency.APIclient.model.coins.CoinList
+import com.example.cryptocurrency.APIclient.model.coins.CoinsMarketData
 import com.example.cryptocurrency.BuildConfig.DEBUG
+import com.example.cryptocurrency.LoadParameters
 import com.example.cryptocurrency.Model.Coin
 import com.example.cryptocurrency.ViewModel.CoinViewModel
 import kotlinx.coroutines.Job
@@ -37,34 +39,35 @@ class CoinGeckoClientAPI {
             .build()
 
         val coinGeckoAPI = retrofit.create(CoinGeckoAPI::class.java)
-        val result : List<CoinList> = coinGeckoAPI.coingeckoContents()
-
-        val currency : String = "usd"
-        var counter : Int = 1
+        val result : List<CoinsMarketData> = coinGeckoAPI.coingeckoCoinMarket()
 
         for (item in result) {
             var coin: Coin =
                 Coin(
                     item.id,
                     item.name,
-                    "",
-                    counter,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null
+                    item.maxPrice,
+                    item.maxPriceDate,
+                    item.marketCapRank,
+                    item.currentPrice,
+                    item.priceCP1H,
+                    item.priceCP24H,
+                    item.priceCP7D,
+                    item.priceCP14D,
+                    item.priceCP30D,
+                    item.priceCP200D
                 )
             Log.d("Debug API", "Delete coin: " + coin.id + "; Name: " + coin.name)
             coinViewModel.deleteCoin(coin)
             Log.d("Debug API", "insert coin: " + coin.id + "; Name: " + coin.name)
             coinViewModel.addCoin(coin)
         }
+
+        LoadParameters.LoadIsOver()
     }
 
-    suspend fun GetCoinById(id : String, coinViewModel: CoinViewModel){
+
+    /*suspend fun GetCoinById(id : String, coinViewModel: CoinViewModel){
 
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -107,6 +110,5 @@ class CoinGeckoClientAPI {
         coinViewModel.deleteCoin(coin)
         Log.d("Debug API", "insert coin: " + coin.id + "; Name: " + coin.name)
         coinViewModel.addCoin(coin)
-
-    }
+    }*/
 }
