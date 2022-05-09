@@ -31,8 +31,6 @@ class AddFragment : Fragment() {
         }
 
         mCoinViewModel = ViewModelProvider(this).get(CoinViewModel::class.java)
-
-
         return binding.root
     }
 

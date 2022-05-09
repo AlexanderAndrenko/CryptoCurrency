@@ -156,20 +156,21 @@ val MIGRATION_3_4: Migration = object : Migration(3, 4) {
         database.execSQL(
             "CREATE TABLE [Coins_new] " +
                     "(" +
-                    "[id] TEXT NOT NULL, " +
-                    "[Name] TEXT NOT NULL," +
-                    "[MaxPrice] REAL NULL, " +
-                    "[MaxPriceData] TEXT NULL," +
-                    "[CoingeckoRank] INTEGER NULL, " +
-                    "[CurrentPriceUSD] REAL NULL, " +
-                    "[PriceChangePer1Hour] REAL NULL, " +
-                    "[PriceChangePer24Hour] REAL NULL, " +
-                    "[PriceChangePer7Days] REAL NULL," +
-                    "[PriceChangePer14Days] REAL NULL, " +
-                    "[PriceChangePer30Days] REAL NULL, " +
-                    "[PriceChangePer200Days] REAL NULL," +
-                    "PRIMARY KEY([id])" +
-                    ")")
+                        "[id] TEXT NOT NULL, " +
+                        "[Name] TEXT NOT NULL," +
+                        "[MaxPrice] REAL NULL, " +
+                        "[MaxPriceDate] TEXT NULL," +
+                        "[CoingeckoRank] INTEGER NULL, " +
+                        "[CurrentPriceUSD] REAL NULL, " +
+                        "[PriceChangePer1Hour] REAL NULL, " +
+                        "[PriceChangePer24Hour] REAL NULL, " +
+                        "[PriceChangePer7Days] REAL NULL," +
+                        "[PriceChangePer14Days] REAL NULL, " +
+                        "[PriceChangePer30Days] REAL NULL, " +
+                        "[PriceChangePer200Days] REAL NULL," +
+                        "PRIMARY KEY([id])" +
+                    ")"
+        )
         // Copy the data
         database.execSQL(
             "INSERT INTO [Coins_new] " +
@@ -193,7 +194,7 @@ val MIGRATION_3_4: Migration = object : Migration(3, 4) {
                     "[PriceChangePer24Hour]," +
                     "[PriceChangePer7Days]," +
                     "[PriceChangePer14Days]," +
-                    "[PriceChangePer30Days]," +
+                    "[PriceChangePer30Days]" +
                     "FROM [Coins]")
         // Remove the old table
         database.execSQL("DROP TABLE [Coins]")

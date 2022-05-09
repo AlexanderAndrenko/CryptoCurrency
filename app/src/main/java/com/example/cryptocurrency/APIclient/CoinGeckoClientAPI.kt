@@ -8,10 +8,7 @@ import com.example.cryptocurrency.BuildConfig.DEBUG
 import com.example.cryptocurrency.LoadParameters
 import com.example.cryptocurrency.Model.Coin
 import com.example.cryptocurrency.ViewModel.CoinViewModel
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -57,10 +54,13 @@ class CoinGeckoClientAPI {
                     item.priceCP30D,
                     item.priceCP200D
                 )
-            Log.d("Debug API", "Delete coin: " + coin.id + "; Name: " + coin.name)
-            coinViewModel.deleteCoin(coin)
-            Log.d("Debug API", "insert coin: " + coin.id + "; Name: " + coin.name)
-            coinViewModel.addCoin(coin)
+            GlobalScope.launch {
+                Log.d("Debug API", "Delete coin: " + coin.id + "; Name: " + coin.name)
+                coinViewModel.deleteCoin(coin)
+                delay(500)
+                Log.d("Debug API", "insert coin: " + coin.id + "; Name: " + coin.name)
+                coinViewModel.addCoin(coin)
+            }
         }
 
         LoadParameters.LoadIsOver()

@@ -12,12 +12,14 @@ import com.example.cryptocurrency.ViewModel.CoinViewModel
 import com.example.cryptocurrency.databinding.FragmentLoadBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class LoadFragment : Fragment() {
 
     private lateinit var binding: FragmentLoadBinding
     private lateinit var mCoinViewModel: CoinViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

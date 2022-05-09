@@ -33,9 +33,9 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
 
         holder.name.text = currentItem.name
         holder.rank.text = currentItem.coingeckoRank.toString()
-        holder.currentPrice.text = currentItem.currentPrice.toString()
-        holder.oneHour.text = currentItem.priceCP1H.toString()
-        holder.oneDay.text = currentItem.priceCP24H.toString()
+        holder.currentPrice.text = "$" + (Math.round(currentItem.currentPrice!! * 10000).toDouble() / 10000).toString()
+        holder.oneHour.text = (Math.round(currentItem.priceCP1H!! * 100).toDouble() / 100).toString() + " %"
+        holder.oneDay.text = (Math.round(currentItem.priceCP24H!! * 100).toDouble() / 100).toString() + " %"
 
         holder.rowLayout.setOnClickListener{
             val action = ListFragmentDirections.actionListFragmentToInfoFragment(currentItem)
